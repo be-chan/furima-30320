@@ -19,7 +19,6 @@
 ## items テーブル
 | Column             | Type       | Option              |
 |--------------------|------------|---------------------|
-| image              |            | ActiveStorageで実装 |
 | name               | string     | NOT NULL            |
 | introduce          | text       | NOT NULL            |
 | category           | string     | NOT NULL            |
