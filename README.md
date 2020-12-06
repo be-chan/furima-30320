@@ -4,6 +4,7 @@
 | Column             | Type   | Option   |
 |--------------------|--------|----------|
 | nickname           | string | NOT NULL |
+| email              | string | NOT NULL |
 | encrypted_password | string | NOT NULL |
 | last_name          | string | NOT NULL |
 | first_name         | string | NOT NULL |
