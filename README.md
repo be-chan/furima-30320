@@ -48,7 +48,7 @@
 | Column          | Type       | Option            |
 |-----------------|------------|-------------------|
 | postal_code     | string     | NOT NULL          |
-| prefecture      | string     | NOT NULL          |
+| prefecture_id   | integer    | NOT NULL          |
 | city            | string     | NOT NULL          |
 | address         | string     | NOT NULL          |
 | building_name   | string     |                   |
