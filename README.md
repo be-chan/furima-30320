@@ -21,11 +21,11 @@
 |--------------------|------------|---------------------|
 | name               | string     | NOT NULL            |
 | introduce          | text       | NOT NULL            |
-| category           | string     | NOT NULL            |
-| state              | string     | NOT NULL            |
-| postage            | string     | NOT NULL            |
-| region             | string     | NOT NULL            |
-| shipping_date      | string     | NOT NULL            |
+| category_id        | integer    | NOT NULL            |
+| state_id           | integer    | NOT NULL            |
+| postage_id         | integer    | NOT NULL            |
+| prefecture_id      | integer    | NOT NULL            |
+| shipping_date_id   | integer    | NOT NULL            |
 | price              | integer    | NOT NULL            |
 | user               | references | foreign_key: true   |
 
