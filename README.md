@@ -1,16 +1,16 @@
 #テーブル設計
 
 ## users テーブル 
-| Column             | Type   | Option   |
-|--------------------|--------|----------|
-| nickname           | string | NOT NULL |
-| email              | string | NOT NULL |
-| encrypted_password | string | NOT NULL |
-| last_name          | string | NOT NULL |
-| first_name         | string | NOT NULL |
-| last_name_kana     | string | NOT NULL |
-| first_name_kana    | string | NOT NULL |
-| birthday           | date   | NOT NULL |
+| Column             | Type   | Option                 |
+|--------------------|--------|------------------------|
+| nickname           | string | NOT NULL               |
+| email              | string | NOT NULL, unique: true |
+| encrypted_password | string | NOT NULL               |
+| last_name          | string | NOT NULL               |
+| first_name         | string | NOT NULL               |
+| last_name_kana     | string | NOT NULL               |
+| first_name_kana    | string | NOT NULL               |
+| birthday           | date   | NOT NULL               |
 
 ### Association
 - has_many :items
