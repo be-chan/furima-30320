@@ -1,24 +1,59 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル 
+| Column             | Type   | Option                 |
+|--------------------|--------|------------------------|
+| nickname           | string | NOT NULL               |
+| email              | string | NOT NULL, unique: true |
+| encrypted_password | string | NOT NULL               |
+| last_name          | string | NOT NULL               |
+| first_name         | string | NOT NULL               |
+| last_name_kana     | string | NOT NULL               |
+| first_name_kana    | string | NOT NULL               |
+| birthday           | date   | NOT NULL               |
 
-Things you may want to cover:
+### Association
+- has_many :items
+- has_many :purchase_recodes
 
-* Ruby version
+## items テーブル
+| Column             | Type       | Option              |
+|--------------------|------------|---------------------|
+| name               | string     | NOT NULL            |
+| introduce          | text       | NOT NULL            |
+| category_id        | integer    | NOT NULL            |
+| state_id           | integer    | NOT NULL            |
+| postage_id         | integer    | NOT NULL            |
+| prefecture_id      | integer    | NOT NULL            |
+| shipping_date_id   | integer    | NOT NULL            |
+| price              | integer    | NOT NULL            |
+| user               | references | foreign_key: true   |
 
-* System dependencies
+### Association
+- belongs_to :user
+- has_one :purchase_recode
 
-* Configuration
+## purchase_recodes テーブル
+| Column | Type       | Option            |
+|--------|------------|-------------------|
+| user   | references | foreign_key: true |
+| item  | references | foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-* Database initialization
+## address テーブル
+| Column          | Type       | Option            |
+|-----------------|------------|-------------------|
+| postal_code     | string     | NOT NULL          |
+| prefecture_id   | integer    | NOT NULL          |
+| city            | string     | NOT NULL          |
+| address         | string     | NOT NULL          |
+| building_name   | string     |                   |
+| phone_number    | string     | NOT NULL          |
+| purchase_recode | references | foreign_key: true |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :purchase_recode
