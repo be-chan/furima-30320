@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true
-  # password 半角英数字混合 
+  # password 半角英数字混合
   VALID_PASSWORD_REGEX = /(?=.*?[a-z])(?=.*?\d)[a-z\d]/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :password_confirmation, format: { with: VALID_PASSWORD_REGEX }
@@ -20,4 +20,6 @@ class User < ApplicationRecord
   end
 
   validates :birthday, presence: true
+
+  has_many :items
 end
