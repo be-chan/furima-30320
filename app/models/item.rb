@@ -26,10 +26,6 @@ class Item < ApplicationRecord
     validates :shipping_date_id
   end
 
-  # validates :price, presence: true, format: { with: /\A[0-9]+\z/ },numericality: { greater_than: 299, less_than: 10000000, message: 'Out of setting range' }
-
-  # validates :price, presence: true
   validates :price, presence: true, numericality: { greater_than: 299, less_than: 10_000_000, message: 'Out of setting range or Half-width number' }
 
-  # message: 'Harf-width number'
 end
