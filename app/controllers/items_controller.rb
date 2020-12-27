@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
   before_action :item_find_params, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update]
   def index
     @items = Item.all.order('id DESC')
   end
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
+
   end
 
   private
@@ -42,7 +42,6 @@ class ItemsController < ApplicationController
   end
 
   def correct_user
-    @item = Item.find_by(id: params[:id])
     redirect_to root_path unless current_user.id == @item.user.id
   end
 
