@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :item_find_params, only: [:edit, :update, :show, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   def index
