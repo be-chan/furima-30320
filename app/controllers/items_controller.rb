@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -58,8 +57,6 @@ class ItemsController < ApplicationController
   end
 
   def item_purchase_recode
-    if @item.purchase_recode.present?
-      redirect_to root_path
-    end
+    redirect_to root_path if @item.purchase_recode.present?
   end
 end

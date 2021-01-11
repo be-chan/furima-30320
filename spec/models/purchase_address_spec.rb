@@ -82,7 +82,6 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number within 11 digits')
       end
-      
     end
   end
 end
