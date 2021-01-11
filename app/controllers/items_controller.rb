@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   private
