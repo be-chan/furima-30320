@@ -82,6 +82,16 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phone number within 11 digits')
       end
+      it 'phone_numberが英数字が混合している場合は登録できない' do
+        @purchase_address.phone_number = '0900000abcd'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number number is invalid. Include half-width numbers")
+      end
+      it 'phone_numberが全角数字の場合は登録できない' do
+        @purchase_address.phone_number = '０９０００００００００'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Phone number number is invalid. Include half-width numbers")
+      end
     end
   end
 end
