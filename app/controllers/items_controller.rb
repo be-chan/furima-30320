@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :item_find_params, only: [:edit, :update, :show, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :item_purchase_recode, only: [:edit]
   def index
     @items = Item.all.order('id DESC')
   end
@@ -20,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    
   end
 
   def update
@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   private
@@ -55,5 +54,9 @@ class ItemsController < ApplicationController
 
   def item_find_params
     @item = Item.find_by(id: params[:id])
+  end
+
+  def item_purchase_recode
+    redirect_to root_path if @item.purchase_recode.present?
   end
 end
